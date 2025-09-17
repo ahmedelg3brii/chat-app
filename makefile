@@ -5,6 +5,9 @@ SHELL = $(if $(wildcard $(SHELL_PATH)),/bin/ash,/bin/bash)
 
 
 
+chat-run:
+	go run api/service/cap/main.go | go run api/tooling/logfmt/main.go 
+
 tidy:
 	go mod tidy
 	go mod vendor
@@ -13,3 +16,4 @@ deps-upgrade:
 	go get -u -v ./...
 	go mod tidy
 	go mod vendor
+
